@@ -69,3 +69,4 @@ let g:lightline = {
 "nmap <Space>p [previm]
 "nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
 "nnoremap <silent> [previm]r :call previm#refresh()<CR>
+

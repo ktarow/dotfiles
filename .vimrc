@@ -37,6 +37,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 "NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
@@ -46,6 +47,9 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'marcus/rsense'
+NeoBundle 'supermomonga/neocomplete-rsense.vim'
+NeoBundle 'tpope/vim-endwise'
 
 call neobundle#end()
 
@@ -62,6 +66,23 @@ set laststatus=2
 let g:lightline = {
 	\ 'colorscheme': 'wombat',
 \}
+
+" --------------------------------
+" Rsense
+" --------------------------------
+let g:rsenseHome = '/usr/local/lib/rsense-0.3'
+let g:rsenseUseOmniFunc = 1
+
+" --------------------------------
+" neocomplete.vim
+" --------------------------------
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 
 " markdown
 "autocmd BufNewFile, BufRead *.{md, mdwn, mkd, mkdn, mark*} set filetype=markdown

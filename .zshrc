@@ -81,8 +81,11 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 #---------Git-----------#
 autoload -Uz vcs_info
 
-zstyle ':vcs_info:*' formats '[%b]'
+zstyle ':vcs_info:*' formats '[%b %c%u%m]'
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr "+"
+zstyle ':vcs_info:*' unstagedstr "-"
 precmd(){
 	psvar=()
 	LANG=en_US.UTF-8 vcs_info

@@ -39,9 +39,13 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'lilydjwg/colorizer'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'itchyny/lightline.vim'
+" Ruby Plugins
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 NeoBundle 'tpope/vim-endwise'
+
+" Git Plugins
+NeoBundle 'airblade/vim-gitgutter'
 
 call neobundle#end()
 
@@ -75,4 +79,10 @@ if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+" --------------------------------
+" vim-gitgutter
+" --------------------------------
+nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
+nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
 

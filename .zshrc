@@ -62,9 +62,6 @@ autoload -Uz compinit; compinit # 補完
 # %U~%u 下線
 # %S~%s 強調
 
-#二段表示
-PROMPT="%{${fg[green]}%}%B[%n]%b%{${reset_color}%} [%{${fg[cyan]}%}%B%~%b%{${reset_color}%}]
-%# "
 
 #------------------Complement--------------------#
 
@@ -81,7 +78,7 @@ zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 #---------Git-----------#
 autoload -Uz vcs_info
 
-zstyle ':vcs_info:*' formats '[%b %c%u%m]'
+zstyle ':vcs_info:*' formats '[%b](%c%u%m)'
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' stagedstr "+"
@@ -92,7 +89,9 @@ precmd(){
 	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-RPROMPT="%B%1(v|%F{yellow}%1v%f|)%b"
+#二段表示
+PROMPT="%{${fg[green]}%}%B[%n]%b%{${reset_color}%} [%{${fg[cyan]}%}%B%~%b%{${reset_color}%}] %B%1(v|%F{yellow}%1v%f|)%b
+%# "
 
 #---------Alias---------#
 

@@ -19,14 +19,6 @@ set hlsearch
 
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
-"括弧の自動保管
-"inoremap { {}<LEFT>
-"inoremap [ []<LEFT>
-"inoremap ( ()<LEFT>
-"inoremap " ""<LEFT>
-"inoremap ' ''<LEFT>
-"inoremap < <><LEFT>
-
 if has('vim_starting')
 	set nocompatible
 	set runtimepath+=~/.vim/bundle/neobundle.vim/	
@@ -83,12 +75,4 @@ if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
-" markdown
-"autocmd BufNewFile, BufRead *.{md, mdwn, mkd, mkdn, mark*} set filetype=markdown
-" Previm
-"let g:previm_open_cmd = ''
-"nmap <Space>p [previm]
-"nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
-"nnoremap <silent> [previm]r :call previm#refresh()<CR>
 

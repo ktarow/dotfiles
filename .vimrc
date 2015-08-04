@@ -17,6 +17,9 @@ set smartcase
 set incsearch
 set hlsearch
 
+set encoding=utf-8
+set fileencodings=iso-2022-jp,cp932,sjis,enc-jp,utf-8
+
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
 if has('vim_starting')
@@ -43,6 +46,9 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'marcus/rsense'
 NeoBundle 'supermomonga/neocomplete-rsense.vim'
 NeoBundle 'tpope/vim-endwise'
+
+" Scala Plugins
+NeoBundle 'derekwyatt/vim-scala'
 
 " Git Plugins
 NeoBundle 'airblade/vim-gitgutter'

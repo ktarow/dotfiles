@@ -1,22 +1,11 @@
 #環境変数
 export LANG=ja_JP.UTF-8
-
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-#nodebrew
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
-
-export PATH="$(brew --prefix homebrew/php/php56)/bin:$PATH"
-
-#makeotf フォント用
-export PATH=PATH=~/bin/FDK/Tools/osx:$PATH
-
-
-#laravel
-#export PATH="$HOME/.composer/vendor/bin:$PATH"
 #--------------------------------Set Option------------------------------------#
 
 setopt list_packed # できるだけ詰めて補完候補を表示
@@ -96,12 +85,6 @@ PROMPT="%{${fg[green]}%}%B[%n]%b%{${reset_color}%} [%{${fg[cyan]}%}%B%~%b%{${res
 #---------Alias---------#
 
 alias ls='ls -G'
-#function cdls(){
-#	\cd $1;
-#	ls;
-#}
-#alias cd='cdls'
-
 alias rm='rm -i'
 alias cp='cp -i'
 alias ...='cd ../../'

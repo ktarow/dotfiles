@@ -53,6 +53,9 @@ NeoBundle 'derekwyatt/vim-scala'
 " Git Plugins
 NeoBundle 'airblade/vim-gitgutter'
 
+" JS Plugins
+NeoBundle 'othree/yajs.vim'
+
 call neobundle#end()
 
 filetype plugin indent on

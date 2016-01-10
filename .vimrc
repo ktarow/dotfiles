@@ -56,6 +56,10 @@ NeoBundle 'airblade/vim-gitgutter'
 " JS Plugins
 NeoBundle 'othree/yajs.vim'
 NeoBundle 'isRuslan/vim-es6'
+NeoBundle 'digitaltoad/vim-jade'
+
+" YAML Plugin
+NeoBundle 'mrk21/yaml-vim'
 
 call neobundle#end()
 

@@ -18,7 +18,7 @@ set incsearch
 set hlsearch
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,cp932,sjis,enc-jp,utf-8
+set fileencodings=utf-8,iso-2022-jp,cp932,sjis,enc-jp
 
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 

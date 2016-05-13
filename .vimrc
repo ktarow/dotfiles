@@ -45,7 +45,6 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'itchyny/lightline.vim'
 " Ruby Plugins
 NeoBundle 'marcus/rsense'
-NeoBundle 'supermomonga/neocomplete-rsense.vim'
 NeoBundle 'tpope/vim-endwise'
 
 " Scala Plugins

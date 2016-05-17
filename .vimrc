@@ -101,3 +101,13 @@ nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
 " vim-markdown
 " ----
 set nofoldenable
+
+" ----
+" ctags
+" ----
+nnoremap t <Nop>
+nnoremap tt <C-]>
+nnoremap tj :<C-u>tag<CR>
+nnoremap tk :<C-u>pop<CR>
+nnoremap tl :<C-u>tags<CR>
+

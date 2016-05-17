@@ -37,7 +37,7 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-markdown'
+NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'lilydjwg/colorizer'
@@ -61,6 +61,9 @@ NeoBundle 'digitaltoad/vim-jade'
 " YAML Plugin
 NeoBundle 'mrk21/yaml-vim'
 
+" ctags
+NeoBundle "szw/vim-tags"
+
 call neobundle#end()
 
 filetype plugin indent on
@@ -76,12 +79,6 @@ set laststatus=2
 let g:lightline = {
 	\ 'colorscheme': 'wombat',
 \}
-
-" --------------------------------
-" Rsense
-" --------------------------------
-let g:rsenseHome = '/usr/local/lib/rsense-0.3'
-let g:rsenseUseOmniFunc = 1
 
 " --------------------------------
 " neocomplete.vim
@@ -100,3 +97,7 @@ let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
 nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
 
+" ----
+" vim-markdown
+" ----
+set nofoldenable

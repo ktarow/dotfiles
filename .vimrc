@@ -17,7 +17,6 @@ set smartcase
 set incsearch
 set hlsearch
 set clipboard=unnamed
-set clipboard=unnamed,autoselect
 
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,cp932,sjis,enc-jp

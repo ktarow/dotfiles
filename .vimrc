@@ -107,6 +107,7 @@ set nofoldenable
 " ----
 nnoremap t <Nop>
 nnoremap tt <C-]>
+nnoremap tgt <C-]>
 nnoremap tj :<C-u>tag<CR>
 nnoremap tk :<C-u>pop<CR>
 nnoremap tl :<C-u>tags<CR>

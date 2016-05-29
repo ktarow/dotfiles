@@ -80,7 +80,7 @@ precmd(){
 
 #二段表示
 PROMPT="%{${fg[green]}%}%B[%n]%b%{${reset_color}%} [%{${fg[cyan]}%}%B%~%b%{${reset_color}%}] %B%1(v|%F{yellow}%1v%f|)%b
-%# "
+$ "
 
 #---------Alias---------#
 

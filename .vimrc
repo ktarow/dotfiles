@@ -57,6 +57,10 @@ NeoBundle 'othree/yajs.vim'
 NeoBundle 'isRuslan/vim-es6'
 NeoBundle 'digitaltoad/vim-jade'
 
+" Python
+NeoBundle 'hynek/vim-python-pep8-indent'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
 " YAML Plugin
 NeoBundle 'mrk21/yaml-vim'
 
@@ -111,3 +115,8 @@ nnoremap tj :<C-u>tag<CR>
 nnoremap tk :<C-u>pop<CR>
 nnoremap tl :<C-u>tags<CR>
 
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=8
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=248
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size=1

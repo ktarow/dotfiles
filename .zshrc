@@ -1,9 +1,12 @@
 #環境変数
 export LANG=ja_JP.UTF-8
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
+export GOPATH="$HOME/go"
+PATH="/usr/local/bin:$PATH"
+PATH="/usr/local/sbin:$PATH"
+PATH="$HOME/.rbenv/bin:$PATH"
+PATH="$GOPATH/bin:$PATH"
+export PATH
 eval "$(rbenv init -)"
 
 #--------------------------------Set Option------------------------------------#

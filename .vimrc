@@ -60,7 +60,7 @@ NeoBundle 'digitaltoad/vim-jade'
 " Python
 NeoBundle 'hynek/vim-python-pep8-indent'
 "NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'Yggdroot/indentLine'
+"NeoBundle 'Yggdroot/indentLine'
 
 " YAML Plugin
 NeoBundle 'mrk21/yaml-vim'

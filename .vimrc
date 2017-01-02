@@ -1,3 +1,7 @@
+
+set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,cp932,sjis,enc-jp
+
 set number
 set t_Co=256
 set expandtab
@@ -17,9 +21,7 @@ set smartcase
 set incsearch
 set hlsearch
 set clipboard=unnamed
-
-set encoding=utf-8
-set fileencodings=utf-8,iso-2022-jp,cp932,sjis,enc-jp
+set laststatus=2
 
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
@@ -31,36 +33,18 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-"NeoBundle 'tomasr/molokai'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'lilydjwg/colorizer'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'itchyny/lightline.vim'
-" Ruby Plugins
-NeoBundle 'marcus/rsense'
-NeoBundle 'tpope/vim-endwise'
-
-" Scala Plugins
-NeoBundle 'derekwyatt/vim-scala'
 
 " Git Plugins
 NeoBundle 'airblade/vim-gitgutter'
 
-" JS Plugins
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'isRuslan/vim-es6'
-NeoBundle 'digitaltoad/vim-jade'
-
 " Python
 NeoBundle 'hynek/vim-python-pep8-indent'
-"NeoBundle 'nathanaelkane/vim-indent-guides'
-"NeoBundle 'Yggdroot/indentLine'
 
 " YAML Plugin
 NeoBundle 'mrk21/yaml-vim'
@@ -73,15 +57,13 @@ call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
 
-colorscheme jellybeans 
+colorscheme jellybeans
 syntax on
 
 autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
 
-set laststatus=2
-
 let g:lightline = {
-	\ 'colorscheme': 'wombat',
+	\ 'colorscheme': 'jellybeans',
 \}
 
 " --------------------------------
@@ -115,13 +97,6 @@ nnoremap tgt <C-]>
 nnoremap tj :<C-u>tag<CR>
 nnoremap tk :<C-u>pop<CR>
 nnoremap tl :<C-u>tags<CR>
-
-" vim-indent-guides
-"let g:indent_guides_auto_colors=0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=8
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=248
-"let g:indent_guides_enable_on_vim_startup=1
-"let g:indent_guides_guide_size=1
 
 " IndentLine
 let g:indentLine_color_term = 8

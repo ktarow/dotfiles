@@ -26,40 +26,58 @@ set laststatus=2
 
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
-if has('vim_starting')
+if &compatible
 	set nocompatible
-	set runtimepath+=~/.vim/bundle/neobundle.vim/	
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+" Required:
+set runtimepath+=/root/.vim/dein/repos/github.com/Shougo/dein.vim
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'itchyny/lightline.vim'
+" Required:
+if dein#load_state('/root/.vim/dein')
+	call dein#begin('/root/.vim/dein')
 
-" Git Plugins
-NeoBundle 'airblade/vim-gitgutter'
+	" Let dein manage dein
+	" Required:
+	call dein#add('/root/.vim/dein/repos/github.com/Shougo/dein.vim')
 
-" Python
-NeoBundle 'hynek/vim-python-pep8-indent'
+	" Add or remove your plugins here:
+	call dein#add('Shougo/neosnippet.vim')
+	call dein#add('Shougo/neosnippet-snippets')
+	call dein#add('Shougo/neocomplete.vim')
+	call dein#add('Shougo/neocomplcache')
 
-" YAML Plugin
-NeoBundle 'mrk21/yaml-vim'
+	" You can specify revision/branch/tag.
+	call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
-" ctags
-NeoBundle "szw/vim-tags"
+	call dein#add( 'nanotech/jellybeans.vim')
+	call dein#add('itchyny/lightline.vim')
 
-call neobundle#end()
+	" Git Plugins
+	call dein#add( 'airblade/vim-gitgutter')
 
+	" Python
+	call dein#add('hynek/vim-python-pep8-indent')
+
+	" YAML Plugin
+	call dein#add('mrk21/yaml-vim')
+
+	" ctags
+	call dein#add("szw/vim-tags")
+
+	" Required:
+	call dein#end()
+	call dein#save_state()
+endif
+
+" Required:
 filetype plugin indent on
-NeoBundleCheck
-
 colorscheme jellybeans
-syntax on
+syntax enable
+
+if dein#check_install()
+    call dein#install()
+endif
 
 autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
 

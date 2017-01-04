@@ -1,11 +1,14 @@
 #!/bin/bash
 
 if ! type git >/dev/null ; then
+    echo 'You must install git.'
     exit 1
 fi
 
-if [ ! -e $HOME/.vim/bundle/neobundle.vim ]; then
-    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+if [ ! -d $HOME/.vim/dein ]; then
+    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
+    sh /tmp/installer.sh $HOME/.vim/dein
+    echo 'installed dein'
 fi
 
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc

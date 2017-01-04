@@ -1,0 +1,11 @@
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = ['python']
+
+[[plugins]]
+repo = 'mrk21/yaml-vim'
+on_ft = ['yaml']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']

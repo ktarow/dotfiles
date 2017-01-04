@@ -36,48 +36,26 @@ set runtimepath+=/root/.vim/dein/repos/github.com/Shougo/dein.vim
 " Required:
 if dein#load_state('/root/.vim/dein')
 	call dein#begin('/root/.vim/dein')
+    let s:toml_dir = '~/dotfiles/dein'
+    let s:toml = s:toml_dir . '/dein.toml'
+    let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
 
-	" Let dein manage dein
-	" Required:
-	call dein#add('/root/.vim/dein/repos/github.com/Shougo/dein.vim')
-
-	" Add or remove your plugins here:
-	call dein#add('Shougo/neosnippet.vim')
-	call dein#add('Shougo/neosnippet-snippets')
-	call dein#add('Shougo/neocomplete.vim')
-	call dein#add('Shougo/neocomplcache')
-
-	" You can specify revision/branch/tag.
-	call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
-
-	call dein#add( 'nanotech/jellybeans.vim')
-	call dein#add('itchyny/lightline.vim')
-
-	" Git Plugins
-	call dein#add( 'airblade/vim-gitgutter')
-
-	" Python
-	call dein#add('hynek/vim-python-pep8-indent')
-
-	" YAML Plugin
-	call dein#add('mrk21/yaml-vim')
-
-	" ctags
-	call dein#add("szw/vim-tags")
+    call dein#load_toml(s:toml, {'lazy': 0})
+    call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
 	" Required:
 	call dein#end()
 	call dein#save_state()
 endif
 
+if dein#check_install()
+    call dein#install()
+endif
+
 " Required:
 filetype plugin indent on
 colorscheme jellybeans
 syntax enable
-
-if dein#check_install()
-    call dein#install()
-endif
 
 autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
 

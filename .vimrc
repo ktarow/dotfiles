@@ -1,6 +1,7 @@
 
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,cp932,sjis,enc-jp
+set fileformats=unix,dos,mac
 
 set number
 set t_Co=256
@@ -25,40 +26,36 @@ set laststatus=2
 
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
-if has('vim_starting')
+if &compatible
 	set nocompatible
-	set runtimepath+=~/.vim/bundle/neobundle.vim/	
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+" Required:
+set runtimepath+=/root/.vim/dein/repos/github.com/Shougo/dein.vim
 
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'itchyny/lightline.vim'
+" Required:
+if dein#load_state('/root/.vim/dein')
+	call dein#begin('/root/.vim/dein')
+    let s:toml_dir = '~/dotfiles/dein'
+    let s:toml = s:toml_dir . '/dein.toml'
+    let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
 
-" Git Plugins
-NeoBundle 'airblade/vim-gitgutter'
+    call dein#load_toml(s:toml, {'lazy': 0})
+    call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-" Python
-NeoBundle 'hynek/vim-python-pep8-indent'
+	" Required:
+	call dein#end()
+	call dein#save_state()
+endif
 
-" YAML Plugin
-NeoBundle 'mrk21/yaml-vim'
+if dein#check_install()
+    call dein#install()
+endif
 
-" ctags
-NeoBundle "szw/vim-tags"
-
-call neobundle#end()
-
+" Required:
 filetype plugin indent on
-NeoBundleCheck
-
 colorscheme jellybeans
-syntax on
+syntax enable
 
 autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
 

@@ -1,6 +1,7 @@
 
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,cp932,sjis,enc-jp
+set fileformats=unix,dos,mac
 
 set number
 set t_Co=256

@@ -1,3 +1,9 @@
-set noexpandtab
-set tabstop=4
-set shiftwidth=4
+if exists('b:did_ftplugin')
+  finish
+endif
+let b:did_ftplugin=1
+
+setlocal noexpandtab
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal softtabstop=4

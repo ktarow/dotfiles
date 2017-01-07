@@ -6,6 +6,7 @@ set fileformats=unix,dos,mac
 set number
 set t_Co=256
 set expandtab
+set smarttab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -27,41 +28,35 @@ set laststatus=2
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 
 if &compatible
-	set nocompatible
+  set nocompatible
 endif
 
-" Required:
 set runtimepath+=/root/.vim/dein/repos/github.com/Shougo/dein.vim
 
-" Required:
 if dein#load_state('/root/.vim/dein')
-	call dein#begin('/root/.vim/dein')
-    let s:toml_dir = '~/dotfiles/dein'
-    let s:toml = s:toml_dir . '/dein.toml'
-    let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
+  call dein#begin('/root/.vim/dein')
+  let s:toml_dir = '~/dotfiles/dein'
+  let s:toml = s:toml_dir . '/dein.toml'
+  let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'
 
-    call dein#load_toml(s:toml, {'lazy': 0})
-    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#load_toml(s:toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
 
-	" Required:
-	call dein#end()
-	call dein#save_state()
+  call dein#end()
+  call dein#save_state()
 endif
 
 if dein#check_install()
-    call dein#install()
+  call dein#install()
 endif
 
-" Required:
 filetype plugin indent on
 colorscheme jellybeans
 syntax enable
 
-autocmd FileType html inoremap <silent> <buffer> </ </<C-x><C-o>
-
 let g:lightline = {
-	\ 'colorscheme': 'jellybeans',
-\}
+      \ 'colorscheme': 'jellybeans',
+      \ }
 
 " --------------------------------
 " neocomplete.vim
@@ -70,9 +65,8 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 if !exists('g:neocomplete#force_omni_input_patterns')
-  let g:neocomplete#force_omni_input_patterns = {}
+	let g:neocomplete#force_omni_input_patterns = {}
 endif
-let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 
 " --------------------------------
 " vim-gitgutter

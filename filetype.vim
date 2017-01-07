@@ -1,8 +1,10 @@
 augroup filetypedetect
-  au BufRead,BufNewFile *.rb   setfiletype ruby
-  au BufRead,BufNewFile *.py   setfiletype python
-  au BufRead,BufNewFile *.php  setfiletype php
-  au BufRead,BufNewFile *.html setfiletype html
-  au BufRead,BufNewFile *.xml  setfiletype xml
-  au BufRead,BufNewFile *.js   setfiletype javascript
+  autocmd FileType go setfiletype go
+  autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+  autocmd FileType xml setfiletype xml
+  autocmd FileType php setfiletype php
+  autocmd FileType ruby setfiletype ruby
+  autocmd FileType html setfiletype html
+  autocmd FileType python setfiletype python
+  autocmd FileType javascript setfiletype javascript
 augroup END

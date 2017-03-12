@@ -31,10 +31,10 @@ if &compatible
   set nocompatible
 endif
 
-set runtimepath+=/root/.vim/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-if dein#load_state('/root/.vim/dein')
-  call dein#begin('/root/.vim/dein')
+if dein#load_state('~/.vim/dein')
+  call dein#begin('~/.vim/dein')
   let s:toml_dir = '~/dotfiles/dein'
   let s:toml = s:toml_dir . '/dein.toml'
   let s:lazy_toml = s:toml_dir . '/dein_lazy.toml'

@@ -24,6 +24,7 @@ set incsearch
 set hlsearch
 set clipboard=unnamed
 set laststatus=2
+set cursorline
 
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
 

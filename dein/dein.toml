@@ -25,3 +25,6 @@ repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'szw/vim-tags'
+
+[[plugins]]
+repo = 'fatih/vim-go'

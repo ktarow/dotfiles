@@ -11,6 +11,10 @@ if [ ! -d $HOME/.vim/dein ]; then
     echo 'installed dein'
 fi
 
+if [ ! -d $HOME/.tmux/plugins/tpm ]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
 if [ ! -d $HOME/.vim/ftplugin ]; then
     ln -sf $HOME/dotfiles/ftplugin $HOME/.vim/ftplugin

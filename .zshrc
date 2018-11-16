@@ -1,38 +1,32 @@
-#環境変数
+
 export LANG=ja_JP.UTF-8
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export GOPATH="$HOME/go"
-PATH="/usr/local/bin:$PATH"
-PATH="/usr/local/sbin:$PATH"
-PATH="$HOME/.rbenv/bin:$PATH"
+
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$GOPATH/bin:$PATH"
 export PATH
-eval "$(rbenv init -)"
 
 #--------------------------------Set Option------------------------------------#
 
-setopt list_packed # できるだけ詰めて補完候補を表示
-setopt print_eight_bit # 日本語ファイル名を表示
-setopt no_beep # ビープ音を無効
-setopt auto_cd # ディレクトリ名だけでの移動
-setopt auto_pushd # cdしたら自動的にpushd
-setopt pushd_ignore_dups # 重複したディレクトリを追加しない
-setopt share_history # 同時に起動したzshのヒストリの共有
-setopt hist_ignore_all_dups # 同じコマンドをヒストリに残さない
-setopt hist_save_nodups # 重複したコマンドがあれば古い方を削除
-setopt hist_reduce_blanks # ヒストリに保存するとき余分なスペースを削除
-setopt auto_menu # 補完候補が複数あるときに自動的に一覧表示
+setopt auto_menu
+setopt auto_list
+setopt auto_pushd
+setopt auto_param_slash
+setopt correct
+setopt equals
+setopt pushd_ignore_dups
+setopt always_last_prompt
+setopt complete_in_word
+setopt list_ambiguous
+setopt list_beep
+setopt list_packed
+setopt list_rows_first
 
 #-----------Search---------------#
 
 setopt inc_append_history
 bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward
-
-#-----------key---------------#
-
-#emacs風キーバインド
-bindkey -e
 
 #-------------Histry---------------#
 

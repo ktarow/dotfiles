@@ -23,3 +23,6 @@ ln -sf $HOME/dotfiles/filetype.vim $HOME/.vim/filetype.vim
 ln -sf $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/dotfiles/.zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/.ctags $HOME/.ctags
+
+mkdir -p $HOME/.config
+ln -sf $HOME/dotfiles/fish $HOME/.config/fish

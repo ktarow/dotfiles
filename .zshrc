@@ -12,7 +12,6 @@ setopt auto_menu
 setopt auto_list
 setopt auto_pushd
 setopt auto_param_slash
-setopt correct
 setopt equals
 setopt pushd_ignore_dups
 setopt always_last_prompt

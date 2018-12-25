@@ -1,10 +1,13 @@
 
 export LANG=ja_JP.UTF-8
 export GOPATH="$HOME/go"
+export PIPENV_VENV_IN_PROJECT=true
 
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$GOPATH/bin:$PATH"
 export PATH
+
+which pyenv >/dev/null 2>&1 && eval "$(pyenv init -)"
 
 #--------------------------------Set Option------------------------------------#
 

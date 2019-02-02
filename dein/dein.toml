@@ -28,3 +28,6 @@ repo = 'szw/vim-tags'
 
 [[plugins]]
 repo = 'fatih/vim-go'
+
+[[plugins]]
+repo = 'saltstack/salt-vim'

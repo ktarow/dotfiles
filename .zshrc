@@ -2,6 +2,7 @@
 export LANG=ja_JP.UTF-8
 export GOPATH="$HOME/go"
 export PIPENV_VENV_IN_PROJECT=true
+export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$GOPATH/bin:$PATH"

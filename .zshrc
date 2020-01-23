@@ -29,6 +29,26 @@ HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 
+# ZLE
+# https://qiita.com/b4b4r07/items/8db0257d2e6f6b19ecb9
+bindkey -v
+bindkey -M viins '\er' history-incremental-pattern-search-forward
+bindkey -M viins '^?'  backward-delete-char
+bindkey -M viins '^A'  beginning-of-line
+bindkey -M viins '^B'  backward-char
+bindkey -M viins '^D'  delete-char-or-list
+bindkey -M viins '^E'  end-of-line
+bindkey -M viins '^F'  forward-char
+bindkey -M viins '^G'  send-break
+bindkey -M viins '^H'  backward-delete-char
+bindkey -M viins '^K'  kill-line
+bindkey -M viins '^N'  down-line-or-history
+bindkey -M viins '^P'  up-line-or-history
+bindkey -M viins '^R'  history-incremental-pattern-search-backward
+bindkey -M viins '^U'  backward-kill-line
+bindkey -M viins '^W'  backward-kill-word
+bindkey -M viins '^Y'  yank
+
 #------------------Load----------------------#
 
 autoload -Uz colors; colors # 色
@@ -75,6 +95,7 @@ alias cp='cp -i'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 
+# Peco
 function peco-src () {
     local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
@@ -86,4 +107,3 @@ function peco-src () {
 zle -N peco-src
 stty -ixon
 bindkey '^s' peco-src
-

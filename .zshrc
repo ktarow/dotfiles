@@ -1,14 +1,6 @@
 
 export LANG=ja_JP.UTF-8
-export GOPATH="$HOME/go"
-export PIPENV_VENV_IN_PROJECT=true
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
-
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-PATH="$GOPATH/bin:$PATH"
-export PATH
-
-which pyenv >/dev/null 2>&1 && eval "$(pyenv init -)"
 
 #--------------------------------Set Option------------------------------------#
 
@@ -41,16 +33,6 @@ SAVEHIST=100000
 
 autoload -Uz colors; colors # 色
 autoload -Uz compinit; compinit # 補完
-
-#-----------------------PROMPT------------------------#
-# %{${fg[color]}%}で色を指定 %{${reset_color}%}で解除
-# %B~%b で太文字
-# %~ カレントディレクトリ
-# %n ユーザー名
-# %# 一般ユーザなら% スーパユーザなら#
-# %U~%u 下線
-# %S~%s 強調
-
 
 #------------------Complement--------------------#
 
@@ -93,8 +75,15 @@ alias cp='cp -i'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+function peco-src () {
+    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+        zle clear-screen
+    fi
+}
+zle -N peco-src
+stty -ixon
+bindkey '^s' peco-src
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/Users/ktaro/.gvm/bin/gvm-init.sh" ]] && source "/Users/ktaro/.gvm/bin/gvm-init.sh"

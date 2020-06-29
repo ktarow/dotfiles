@@ -1,6 +1,8 @@
 
+GOPATH="$HOME/go"
 export LANG=ja_JP.UTF-8
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+export PATH="${PATH}:${HOME}/.krew/bin:${GOPATH}/bin"
 
 #--------------------------------Set Option------------------------------------#
 
@@ -80,9 +82,6 @@ precmd(){
 	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 
-#二段表示
-PROMPT="%{${fg[green]}%}%B[%n]%b%{${reset_color}%} [%{${fg[cyan]}%}%B%~%b%{${reset_color}%}] %B%1(v|%F{yellow}%1v%f|)%b
-$ "
 
 #---------Alias---------#
 
@@ -107,3 +106,38 @@ function peco-src () {
 zle -N peco-src
 stty -ixon
 bindkey '^s' peco-src
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+### End of Zinit's installer chunk
+
+PROMPT="[%{${fg[cyan]}%}%B%~%b%{${reset_color}%}]"
+PROMPT="$PROMPT%B%1(v|%F{yellow}%1v%f|)%b "
+if [[ -s "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]]; then
+    source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+    KUBE_PS1_SYMBOL_COLOR=""
+    KUBE_PS1_CTX_COLOR=""
+    KUBE_PS1_NS_COLOR=""
+    PROMPT=$PROMPT'$(kube_ps1)'
+fi
+NEWLINE=$'\n'
+PROMPT="$PROMPT ${NEWLINE}$ "
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"

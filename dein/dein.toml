@@ -34,3 +34,6 @@ repo = 'saltstack/salt-vim'
 
 [[plugins]]
 repo = 'google/vim-jsonnet'
+
+[[plugins]]
+repo = 'ConradIrwin/vim-bracketed-paste'

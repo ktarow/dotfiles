@@ -141,3 +141,8 @@ fi
 NEWLINE=$'\n'
 PROMPT="$PROMPT ${NEWLINE}$ "
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+export EDITOR=vim
+eval "$(direnv hook zsh)"
+
+export PATH="$HOME/.poetry/bin:$PATH"

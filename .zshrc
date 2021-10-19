@@ -1,8 +1,12 @@
-
-GOPATH="$HOME/go"
 export LANG=ja_JP.UTF-8
 export JAVA_HOME=$(/usr/libexec/java_home -v 11)
-export PATH="${PATH}:${HOME}/.krew/bin:${GOPATH}/bin"
+export EDITOR=vim
+GOPATH="$HOME/go"
+PATH="$HOME/.krew/bin:$PATH"
+PATH="$GOPATH/bin:$PATH"
+PATH="$HOME/.poetry/bin:$PATH"
+PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH
 
 #--------------------------------Set Option------------------------------------#
 
@@ -140,9 +144,3 @@ if [[ -s "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]]; then
 fi
 NEWLINE=$'\n'
 PROMPT="$PROMPT ${NEWLINE}$ "
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-
-export EDITOR=vim
-eval "$(direnv hook zsh)"
-
-export PATH="$HOME/.poetry/bin:$PATH"

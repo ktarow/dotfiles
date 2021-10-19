@@ -5,10 +5,9 @@ if ! type git >/dev/null ; then
     exit 1
 fi
 
-if [ ! -d $HOME/.vim/dein ]; then
-    curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/installer.sh
-    sh /tmp/installer.sh $HOME/.vim/dein
-    echo 'installed dein'
+if [ ! -f $HOME/.vim/autoload/plug.vim ]; then
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo 'installed vim-plug'
 fi
 
 if [ ! -d $HOME/.tmux/plugins/tpm ]; then
@@ -23,6 +22,3 @@ ln -sf $HOME/dotfiles/filetype.vim $HOME/.vim/filetype.vim
 ln -sf $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
 ln -sf $HOME/dotfiles/.zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/.ctags $HOME/.ctags
-
-mkdir -p $HOME/.config
-ln -sf $HOME/dotfiles/fish $HOME/.config/fish

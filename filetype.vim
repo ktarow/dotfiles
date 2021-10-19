@@ -6,5 +6,8 @@ augroup filetypedetect
   autocmd FileType ruby setfiletype ruby
   autocmd FileType html setfiletype html
   autocmd FileType python setfiletype python
+  autocmd FileType perl setfiletype perl
+  autocmd BufNewFile,BufRead *.psgi setfiletype perl
+  autocmd BufNewFile,BufRead *.t    setfiletype perl
   autocmd FileType javascript setfiletype javascript
 augroup END

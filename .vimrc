@@ -29,13 +29,7 @@ set cursorline
 
 " Plugin
 call plug#begin('~/.vim/plugged')
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 
 Plug 'Shougo/deoppet.nvim', { 'do': ':UpdateRemotePlugins' }

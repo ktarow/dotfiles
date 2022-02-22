@@ -14,7 +14,11 @@ if [ ! -d $HOME/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+# For neovim
+mkdir -p ~/.config
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
+ln -sf $HOME/.vim $HOME/.config/nvim
+ln -sf $HOME/dotfiles/.vimrc $HOME/.config/nvim/init.vim
 if [ ! -d $HOME/.vim/ftplugin ]; then
     ln -sf $HOME/dotfiles/ftplugin $HOME/.vim/ftplugin
 fi

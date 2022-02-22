@@ -1,6 +1,7 @@
 export LANG=ja_JP.UTF-8
-export JAVA_HOME=$(/usr/libexec/java_home -v 11)
+#export JAVA_HOME=$(/usr/libexec/java_home -v 11)
 export EDITOR=vim
+export XDG_CONFIG_HOME=~/.config
 GOPATH="$HOME/go"
 PATH="$HOME/.krew/bin:$PATH"
 PATH="$GOPATH/bin:$PATH"
@@ -97,6 +98,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias ...='cd ../../'
 alias ....='cd ../../../'
+alias vim='nvim'
 
 # Peco
 function peco-src () {

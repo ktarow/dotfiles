@@ -13,6 +13,7 @@ if [ "$(uname)" == 'Darwin' ]; then
         hash -r
     fi
     ln -sf $HOME/dotfiles/Brewfile $HOME/Brewfile
+    ln -sf $HOME/dotfiles/Brewfile.lock.json $HOME/Brewfile.lock.json
     brew bundle
 fi
 

@@ -43,6 +43,10 @@ if [ ! -d $HOME/.vim/ftplugin ]; then
 fi
 
 # For .zshrc
+if [ ! -f $HOME/.zprofile ]; then
+    touch $HOME/.zprofile
+    echo "create $HOME/.zprofile"
+fi
 ln -sf $HOME/dotfiles/.zshrc $HOME/.zshrc
 
 # For ctags

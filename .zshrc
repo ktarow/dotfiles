@@ -9,6 +9,8 @@ PATH="$HOME/.poetry/bin:$PATH"
 PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH
 
+eval "$(anyenv init -)"
+
 #--------------------------------Set Option------------------------------------#
 
 setopt auto_menu
@@ -140,3 +142,34 @@ if [[ -s "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]]; then
 fi
 NEWLINE=$'\n'
 PROMPT="$PROMPT ${NEWLINE}$ "
+
+### AWS
+function peco-aws-profile() {
+    local section=$(peco <(cat ~/.aws/credentials | egrep -i "\[.*]" | grep -v 'step' | sed -e "s/^\[\(.*\)\]$/\1/"))
+    if [ -z "$section" ]; then
+        echo "The profile is not selected."
+        zle accept-line
+        return
+    fi
+    echo "Choice: $section"
+    setopt LOCAL_OPTIONS NO_NOTIFY NO_MONITOR
+    okta-awscli --okta-profile $section --profile $section-step --password $(security find-generic-password -a dena-okta -w) &
+    while true; do
+        if ps -p $! >&-; then
+            echo -ne "."
+            sleep 1
+        else
+            echo
+            export AWS_PROFILE=$section
+            echo "Change AWS_PROFILE: [$section]"
+            zle accept-line
+            break
+        fi
+    done
+}
+zle -N peco-aws-profile
+bindkey '^x' peco-aws-profile
+
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+complete -C "$(which aws_completer)" aws

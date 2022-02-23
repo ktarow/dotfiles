@@ -5,24 +5,44 @@ if ! type git >/dev/null ; then
     exit 1
 fi
 
-if [ ! -f $HOME/.vim/autoload/plug.vim ]; then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo 'installed vim-plug'
+# For Mac
+if [ "$(uname)" == 'Darwin' ]; then
+    if ! command -v brew >/dev/null 2>&1; then
+        curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+        echo "installed Homebrew"
+        hash -r
+    fi
+    ln -sf $HOME/dotfiles/Brewfile $HOME/Brewfile
+    brew bundle
 fi
 
+# For tmux
 if [ ! -d $HOME/.tmux/plugins/tpm ]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+ln -sf $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
 
 # For neovim
-mkdir -p ~/.config
+XDG_DATA_HOME="$HOME/.config"
+mkdir -p $XDG_DATA_HOME
+
+if [ ! -f $HOME/.vim/autoload/plug.vim ]; then
+    curl -fLo $XDG_DATA_HOME/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo 'installed vim-plug'
+fi
+
+NVIM_HOME=$XDG_DATA_HOME/nvim
 ln -sf $HOME/dotfiles/.vimrc $HOME/.vimrc
-ln -sf $HOME/.vim $HOME/.config/nvim
-ln -sf $HOME/dotfiles/.vimrc $HOME/.config/nvim/init.vim
+ln -sf $HOME/.vim $NVIM_HOME
+ln -sf $HOME/dotfiles/.vimrc $NVIM_HOME/init.vim
+ln -sf $HOME/dotfiles/filetype.vim $HOME/.vim/filetype.vim
+
 if [ ! -d $HOME/.vim/ftplugin ]; then
     ln -sf $HOME/dotfiles/ftplugin $HOME/.vim/ftplugin
 fi
-ln -sf $HOME/dotfiles/filetype.vim $HOME/.vim/filetype.vim
-ln -sf $HOME/dotfiles/.tmux.conf $HOME/.tmux.conf
+
+# For .zshrc
 ln -sf $HOME/dotfiles/.zshrc $HOME/.zshrc
+
+# For ctags
 ln -sf $HOME/dotfiles/.ctags $HOME/.ctags

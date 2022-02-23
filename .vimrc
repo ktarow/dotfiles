@@ -5,7 +5,6 @@ set fileformats=unix,dos,mac
 
 set nf=""
 set number
-set t_Co=256
 set expandtab
 set smarttab
 set tabstop=4
@@ -14,8 +13,6 @@ set softtabstop=4
 set autoindent
 set smartindent
 set noswapfile
-set backspace=indent,eol,start
-set vb t_vb=
 set whichwrap=b,s,h,l,<,>,[,]
 set showmode
 set wrapscan
@@ -33,9 +30,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 
 Plug 'Shougo/deoppet.nvim', { 'do': ':UpdateRemotePlugins' }
-
 Plug 'nanotech/jellybeans.vim'
-
 Plug 'itchyny/lightline.vim'
 let g:lightline = { 'colorscheme': 'wombat' }
 
@@ -44,8 +39,8 @@ nnoremap <silent> ,gg :<C-u>GitGutterToggle<CR>
 nnoremap <silent> ,gh :<C-u>GitGutterLineHighlightsToggle<CR>
 
 Plug 'google/vim-jsonnet'
-
 Plug 'cespare/vim-toml', { 'branch': 'main' }
+Plug 'vim-perl/vim-perl', { 'for': 'perl', 'do': 'make clean carp dancer highlight-all-pragmas moose test-more try-tiny' }
 call plug#end()
 
 " Indent/Syntax

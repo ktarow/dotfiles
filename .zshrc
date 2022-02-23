@@ -101,18 +101,6 @@ alias ....='cd ../../../'
 alias vim='nvim'
 
 # Peco
-function peco-src () {
-    local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-        zle clear-screen
-    fi
-}
-zle -N peco-src
-stty -ixon
-bindkey '^s' peco-src
-
 function peco-branch() {
     local selected_line="$(git for-each-ref --format='%(refname:short) | %(committerdate:relative) | %(committername) | %(subject)' --sort=-committerdate refs/heads refs/remotes \
         | column -t -s '|' \

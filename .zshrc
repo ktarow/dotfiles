@@ -11,6 +11,10 @@ export PATH
 
 eval "$(anyenv init -)"
 
+# Crtl-vを押したあと、調べたいキーを押すとキーコードが表示される
+# Ctrl-v押下後、上矢印キー
+# > ^[[A
+
 #--------------------------------Set Option------------------------------------#
 
 setopt auto_menu
@@ -118,7 +122,7 @@ function peco-branch() {
     zle clear-screen
 }
 zle -N peco-branch
-bindkey '^b' peco-branch
+bindkey '∫' peco-branch
 
 function open-git-remote() {
   git rev-parse --git-dir >/dev/null 2>&1

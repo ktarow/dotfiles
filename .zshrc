@@ -135,6 +135,17 @@ function open-git-remote() {
 zle -N open-git-remote
 bindkey '^o' open-git-remote
 
+function peco-src() {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
+
 PROMPT="[%{${fg[cyan]}%}%B%~%b%{${reset_color}%}]"
 PROMPT="$PROMPT%B%1(v|%F{yellow}%1v%f|)%b "
 if [[ -s "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]]; then

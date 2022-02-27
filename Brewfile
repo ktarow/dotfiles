@@ -16,4 +16,6 @@ brew "ghq"
 brew "java" unless system "/usr/libexec/java_home -F"
 brew "java11" unless system "/usr/libexec/java_home -F"
 
+cask "deepl"
+
 mas "LINE", id: 539883307

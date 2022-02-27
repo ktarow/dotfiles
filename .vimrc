@@ -23,6 +23,7 @@ set hlsearch
 set clipboard=unnamed
 set laststatus=2
 set cursorline
+set nofoldenable " 行の折りたたみを抑制.折りたたみたい場合はfoldmethodを設定する
 
 " Plugin
 call plug#begin('~/.vim/plugged')

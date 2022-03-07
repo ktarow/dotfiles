@@ -11,6 +11,9 @@ export PATH
 
 eval "$(anyenv init -)"
 
+# Perl
+export PERLTIDY=$HOME/perltidy
+
 # Crtl-vを押したあと、調べたいキーを押すとキーコードが表示される
 # Ctrl-v押下後、上矢印キー
 # > ^[[A

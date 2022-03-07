@@ -51,3 +51,6 @@ ln -sf $HOME/dotfiles/.zshrc $HOME/.zshrc
 
 # For ctags
 ln -sf $HOME/dotfiles/.ctags $HOME/.ctags
+
+# For Perl
+ln -sf $HOME/dotfiles/.perltidyrc $HOME/.perltidyrc

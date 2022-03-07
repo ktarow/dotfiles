@@ -59,3 +59,8 @@ nnoremap tl :<C-u>tags<CR>
 
 " nmap
 nmap <ESC><ESC> :nohlsearch<CR><ESC>
+
+" For Perl
+" perltidy
+noremap ,pt :%! perltidy <Return>
+noremap ,ptv :! perltidy <Return>
